@@ -1,11 +1,11 @@
 Feature: Shopping Cart
 
-    @smoke
+    @smokes
     Scenario: Agregar producto al carrito de compra
-      Given Tengo la aplicacion de saucelabsss
-      And Ingreso 'usuario' correcto
-      And Ingreso 'contrasena' correcta
-      And Doy en opcion 'login'
+      Given Tengo la aplicacion de saucelabs 1
+      And Ingreso 'usuario' correcto 1
+      And Ingreso 'contrasena' correcta 1
+      And Doy en opcion 'login' 1
       When Elijo la opcion 'añadir a carrito' del 'producto'
       And Ingreso al carrito de compras
       Then Visualizo el 'nombre' del producto agregado al carrito

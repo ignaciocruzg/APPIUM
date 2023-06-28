@@ -18,7 +18,7 @@ def before_scenario(context, scenario):
 
 
 def after_scenario(context, scenario):
-    subprocess.run("allure serve reports/android", shell=True)
+    # subprocess.run("allure serve reports/android", shell=True)
     context.driver.quit()
 
 
