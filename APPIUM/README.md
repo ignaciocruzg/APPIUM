@@ -1,7 +1,7 @@
 
 # Prueba de login
 
-Este proyecto contiene la automatización de casos de prueba del modulo de login.
+Este proyecto contiene la automatización de casos de prueba del modulo de login, productos, detalle de producto.
 Para eso es necesario considerar la instalación de las siguientes herramientas de software.
 
 * Python3
@@ -32,19 +32,18 @@ Agregar el capabilitie de acuerdo a las caracteriticas de dipositivo agrego imag
   
 ```bash
 {
-        "platformName": "Android",
-        "appium:platformVersion": "13",
-        "appium:deviceName": "b2q",
-        "appium:automationName": "UiAutomator2",
-        "appium:app": "e:\\Users\\88433\\Downloads\\appPrueba.apk",
-        "appium:appPackage": "com.saucelabs.mydemoapp.rn",
-        "appium:appActivity": ".MainActivity"
+        'platformName': 'Android',
+        'deviceName': '56295fdf',
+        'app': 'e:/Users/948255/Documents/CursoWizelineAutomation/Entregables/APPIUM/APP/sauce_app.apk',
+        'appPackage': 'com.swaglabsmobileapp',
+        'appActivity': '.MainActivity'
 
     }
 ```
-Una vez genrado el capabilitie
-* Guardar el capabilitie
+Una vez generado el capabilities
+* Guardar el capabilities
 * Iniciar la sesión
+* Es necesario iniciar appium
 
 ![img_2.png](img_2.png)
 
@@ -73,7 +72,7 @@ Para instalar las dependencias utilizar el siguiente comando
 pip install -r requirements.txt
 ``` 
 
-Dentro de la carpeta utils encontrará un archivo .env que serán las credenciales para poder realizar un login en la app de prueba, las credenciales se las proporcionará negocio.
+Dentro de la carpeta Behave/utils/dictionaries encontrará un archivo input_data.py que contiene las credenciales para poder realizar un login en la app de prueba, las credenciales se las proporcionará negocio.
 ```bash
 STANDARD_USER=
 PASSWORD=
@@ -87,54 +86,35 @@ Para correr el set de pruebas debe tener la siguiente configuración
 ![img_3.png](img_3.png)
 dentro del campo parameter colocar lo siguiente
 * ```bash
-  --tags=e2e
-  -k
-  -D
-  platform=android
-  -D
-  platform_version=13
-  -D
-  testing_process=serial
-  -D
-  driver_location=local
-  -D
-  device_name=b2q
+  --tags=regression
+  -f
+  allure_behave.formatter::AllureFormatter
+  -o
+  reports/android
   -f
   pretty
   features/
-  ```  
-  Nota: `platform_version` y `device_name` depende del modelo de dipositivo android a utilizar  
   
+  
+  ```  
+  Nota: ``device_name` depende del dipositivo android a utilizar, esto se puede consultar con el comando
+
+* adb devices
 
 ### Para pruebas de regresion 
-* Tener una nueva configuración en este caso se nombró regressionTest
-* Agregar el parametro `--tags=`(nombre del tag para identificar la prueba de regresion) como se muestra en la imagen.
-* ![img_4.png](img_4.png)  
+* Tener una nueva configuración en este caso se nombró regression
+* Agregar el parametro `--tags=regression`  
 
 ### Pruebas de humo
 * Tener una nueva configuración en este caso se nombró smokeTest
-* Agregar el parametro `--tags=`(nombre del tag para identificar la prueba de regresion) como se muestra en la imagen.
-* ![img_5.png](img_5.png)  
+* Agregar el parametro `--tags=smoke`  
 
 Cada nuevo tag o etiqueta del tipo de prueba se debe colocar en los features especificamente en la parte superior del escenario(Scenario)  
 ![img_6.png](img_6.png)
   
 ### Reportes Allure  
 
-Para generar reporte desde cero con Allure, se deben seguir los siguientes pasos y comandos:
+Para generar reporte con Allure, es necesario abrir el archivo Beheve/environment.py y quitar el comentario a la linea:
 
-* Intallar allure en nuestra terminal de pycharm 
-```bash
-    pip install allure-behave
-  ```  
-* Agregar el paquete allure-behave ![img_7.png](img_7.png) 
-* Posicionarse hasta la carpeta Behave dentro de la terminal y correr los siguientes comandos
-```bash
-  behave #para ver si corren todos los features 
-  
-  behave -f allure_behave.formatter:AllureFormatter -o reports/ features # para generar la carpeta reports y correr las pruebas 
-  
-  allure serve reports/ #para mostrar el reporte
-```  
-Ejemplo
-![img_8.png](img_8.png)
+  # subprocess.run("allure serve reports/android", shell=True)
+
