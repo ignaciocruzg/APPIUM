@@ -5,28 +5,13 @@ from screens.product_detail_screen import ProductDetailScreen
 from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS
 
 
-@Given("Tengo la aplicacion de saucelabs 2")
-def step_impl(context):
-    LoginScreen(context)
-
-
-@Given("Ingreso 'usuario' correcto 2")
+@Given("Ingreso a la app con datos correctos")
 def step_impl(context):
     usuario = LOGIN_TEXTS.get("txt_username")
-    loginscreen = LoginScreen(context)
-    loginscreen.fill_text(*loginscreen.txt_username, text=usuario)
-
-
-@Given("Ingreso 'contrasena' correcta 2")
-def step_impl(context):
     password = LOGIN_TEXTS.get("txt_password")
     loginscreen = LoginScreen(context)
+    loginscreen.fill_text(*loginscreen.txt_username, text=usuario)
     loginscreen.fill_text(*loginscreen.txt_password, text=password)
-
-
-@Given("Doy en opcion 'login' 2")
-def step_impl(context):
-    loginscreen = LoginScreen(context)
     loginscreen.tap_element(*loginscreen.btn_login)
 
 
