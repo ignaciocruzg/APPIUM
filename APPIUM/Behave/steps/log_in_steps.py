@@ -34,3 +34,13 @@ def step_impl(context):
     text_productos = LOGIN_TEXTS.get("text_homepage")
     productscreen = ProductosScreen(context)
     productscreen.assert_text(*productscreen.lbl_productos, text=text_productos)
+
+
+@Given("Ingreso a la app con datos correctos")
+def step_impl(context):
+    usuario = LOGIN_TEXTS.get("txt_username")
+    password = LOGIN_TEXTS.get("txt_password")
+    loginscreen = LoginScreen(context)
+    loginscreen.fill_text(*loginscreen.txt_username, text=usuario)
+    loginscreen.fill_text(*loginscreen.txt_password, text=password)
+    loginscreen.tap_element(*loginscreen.btn_login)

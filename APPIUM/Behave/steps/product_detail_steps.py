@@ -5,16 +5,6 @@ from screens.product_detail_screen import ProductDetailScreen
 from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS
 
 
-@Given("Ingreso a la app con datos correctos")
-def step_impl(context):
-    usuario = LOGIN_TEXTS.get("txt_username")
-    password = LOGIN_TEXTS.get("txt_password")
-    loginscreen = LoginScreen(context)
-    loginscreen.fill_text(*loginscreen.txt_username, text=usuario)
-    loginscreen.fill_text(*loginscreen.txt_password, text=password)
-    loginscreen.tap_element(*loginscreen.btn_login)
-
-
 @When("Elijo el 'producto'")
 def step_impl(context):
     productsscreen = ProductosScreen(context)

@@ -1,18 +1,7 @@
 from behave import When, Given, Then
-from screens.log_in_screen import LoginScreen
 from screens.products_screen import ProductosScreen
 from screens.shopping_cart_screen import ShoppingCartScreen
 from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS
-
-
-@Given("Ingreso a la app y hago login exitoso")
-def step_impl(context):
-    usuario = LOGIN_TEXTS.get("txt_username")
-    password = LOGIN_TEXTS.get("txt_password")
-    loginscreen = LoginScreen(context)
-    loginscreen.fill_text(*loginscreen.txt_username, text=usuario)
-    loginscreen.fill_text(*loginscreen.txt_password, text=password)
-    loginscreen.tap_element(*loginscreen.btn_login)
 
 
 @When("Elijo la opcion 'añadir a carrito' del 'producto'")

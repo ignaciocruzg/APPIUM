@@ -116,5 +116,4 @@ Cada nuevo tag o etiqueta del tipo de prueba se debe colocar en los features esp
 
 Para generar reporte con Allure, es necesario abrir el archivo Beheve/environment.py y quitar el comentario a la linea:
 
-  # subprocess.run("allure serve reports/android", shell=True)
-
+* subprocess.run("allure serve reports/android", shell=True)
