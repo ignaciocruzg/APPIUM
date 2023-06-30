@@ -10,7 +10,7 @@ class ProductosScreen(CommonActions):
                               "'PRODUCTOS')]")
         self.lbl_nombre_producto = (By.XPATH,
                                     "//*[contains(@text,"
-                                    "'Camisa Sauce Labs Bolt')]")
+                                    "'Chamarra Sauce Labs')]")
         self.lbl_anadir_producto = (By.XPATH,
                                     "//*[contains(@text,"
                                     "'AÑADIR A CARRITO')]")

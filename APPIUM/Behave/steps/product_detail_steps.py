@@ -1,5 +1,4 @@
 from behave import When, Given, Then
-from screens.log_in_screen import LoginScreen
 from screens.products_screen import ProductosScreen
 from screens.product_detail_screen import ProductDetailScreen
 from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS
@@ -8,6 +7,7 @@ from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS
 @When("Elijo el 'producto'")
 def step_impl(context):
     productsscreen = ProductosScreen(context)
+    productsscreen.scroll_down()
     productsscreen.tap_element(*productsscreen.lbl_nombre_producto)
 
 
