@@ -1,16 +1,25 @@
 from appium.webdriver.common.appiumby import AppiumBy as By
 from utils.common_actions import CommonActions
+from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS
 
 
 class ProductosScreen(CommonActions):
     def __init__(self, context):
         super().__init__(context.driver)
+        text_title = LOGIN_TEXTS.get("LOGIN_TEXTS")
+        text_nombre_producto = PRODUCT_TEXTS.get("txt_productname")
         self.lbl_productos = (By.XPATH,
-                              "//*[contains(@text,"
-                              "'PRODUCTOS')]")
+                              '//*[contains(@text,"{}")]'
+                              .format(text_title))
         self.lbl_nombre_producto = (By.XPATH,
-                                    "//*[contains(@text,"
-                                    "'Chamarra Sauce Labs')]")
+                                    '//*[contains(@text,"{}")]'
+                                    .format(text_nombre_producto))
+        self.scroll_down_product_name = (By.ANDROID_UIAUTOMATOR,
+                                         'new UiScrollable(new UiSelector().'
+                                         'scrollable(true).instance(0)).'
+                                         'scrollIntoView(new UiSelector().'
+                                         'textContains("{}").instance(0))'
+                                         .format(text_nombre_producto))
         self.lbl_anadir_producto = (By.XPATH,
                                     "//*[contains(@text,"
                                     "'AÑADIR A CARRITO')]")

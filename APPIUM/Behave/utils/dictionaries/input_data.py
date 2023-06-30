@@ -6,6 +6,6 @@ LOGIN_TEXTS = {
 
 PRODUCT_TEXTS = {
     'txt_title_product_detail': "REGRESO A PRODUCTOS",
-    'txt_productname': "Camisa Sauce Labs Bolt",
-    'txt_price': "$15.99"
+    'txt_productname': "Mochila Sauce Labs",
+    'txt_price': "$29.99"
 }

@@ -1,7 +1,7 @@
-from behave import When, Given, Then
+from behave import When, Then
 from screens.products_screen import ProductosScreen
 from screens.shopping_cart_screen import ShoppingCartScreen
-from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS
+from utils.dictionaries.input_data import PRODUCT_TEXTS
 
 
 @When("Elijo la opcion 'añadir a carrito' del 'producto'")

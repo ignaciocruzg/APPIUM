@@ -23,10 +23,3 @@ class CommonActions(object):
 
     def get_text_of_element(self, *locator):
         return self.driver.find_element(*locator).text
-
-    def scroll_down(self):
-        touch = TouchAction(self.driver)
-        touch.press(None, 540, 1900)\
-            .wait(3000)\
-            .move_to(None, 540, 510)\
-            .release().perform()

@@ -1,10 +1,27 @@
 from appium.webdriver.common.appiumby import AppiumBy as By
 from utils.common_actions import CommonActions
+from utils.dictionaries.input_data import PRODUCT_TEXTS
 
 
 class ProductDetailScreen(CommonActions):
     def __init__(self, context):
         super().__init__(context.driver)
-        self.lbl_title_product_detail = (By.XPATH, "//*[contains(@text,'REGRESO A PRODUCTOS')]")
-        self.lbl_nombre_producto = (By.XPATH, "//*[contains(@text,'Camisa Sauce Labs Bolt')]")
-        self.lbl_precio_producto = (By.XPATH, "//*[contains(@text,'$15.99')]")
+        text_title_product_detail = PRODUCT_TEXTS\
+            .get("txt_title_product_detail")
+        text_nombre_producto = PRODUCT_TEXTS.get("txt_productname")
+        text_precio_producto = PRODUCT_TEXTS.get("txt_price")
+        self.lbl_title_product_detail = (By.XPATH,
+                                         '//*[contains(@text,"{}")]'
+                                         .format(text_title_product_detail))
+        self.scroll_down_product_name = (By.ANDROID_UIAUTOMATOR,
+                                         'new UiScrollable(new UiSelector().'
+                                         'scrollable(true).instance(0)).'
+                                         'scrollIntoView(new UiSelector().'
+                                         'textContains("{}").instance(0))'
+                                         .format(text_nombre_producto))
+        self.scroll_down_product_price = (By.ANDROID_UIAUTOMATOR,
+                                          'new UiScrollable(new UiSelector().'
+                                          'scrollable(true).instance(0)).'
+                                          'scrollIntoView(new UiSelector().'
+                                          'textContains("{}").instance(0))'
+                                          .format(text_precio_producto))

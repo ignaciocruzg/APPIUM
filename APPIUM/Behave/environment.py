@@ -8,7 +8,7 @@ from dotenv import dotenv_values
 def before_scenario(context, scenario):
     desired_caps = {
         'platformName': 'Android',
-        'deviceName': '56295fdf',
+        'deviceName': 'emulator-5554',
         'app': 'e:/Users/948255/Documents/CursoWizelineAutomation/Entregables/APPIUM/APP/sauce_app.apk',
         'appPackage': 'com.swaglabsmobileapp',
         'appActivity': '.MainActivity'

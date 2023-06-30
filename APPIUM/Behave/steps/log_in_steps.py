@@ -33,7 +33,8 @@ def step_impl(context):
 def step_impl(context):
     text_productos = LOGIN_TEXTS.get("text_homepage")
     productscreen = ProductosScreen(context)
-    productscreen.assert_text(*productscreen.lbl_productos, text=text_productos)
+    productscreen.assert_text(*productscreen.lbl_productos,
+                              text=text_productos)
 
 
 @Given("Ingreso a la app con datos correctos")
