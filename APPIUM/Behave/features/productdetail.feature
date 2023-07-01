@@ -1,6 +1,6 @@
 Feature: Product Detail
 
-    @smoke @test
+    @regression
     Scenario: Visualizar el detalle de un producto
       Given Ingreso a la app con datos correctos
       When Elijo el 'producto'

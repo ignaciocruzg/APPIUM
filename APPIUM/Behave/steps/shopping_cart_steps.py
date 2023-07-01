@@ -1,19 +1,34 @@
 from behave import When, Then
 from screens.products_screen import ProductosScreen
+from screens.product_detail_screen import ProductDetailScreen
 from screens.shopping_cart_screen import ShoppingCartScreen
-from utils.dictionaries.input_data import PRODUCT_TEXTS
+from utils.dictionaries.input_data import PRODUCT_TEXTS, CART_TEXTS
 
 
-@When("Elijo la opcion 'añadir a carrito' del 'producto'")
+@When("Elijo 'producto'")
 def step_impl(context):
     productsscreen = ProductosScreen(context)
-    productsscreen.tap_element(*productsscreen.lbl_anadir_producto)
+    productsscreen.tap_element(*productsscreen.scroll_down_product_name)
 
 
-@When("Ingreso al carrito de compras")
+@When("Elijo 'Añadir a carrito'")
 def step_impl(context):
-    productsscreen = ProductosScreen(context)
-    productsscreen.tap_element(*productsscreen.opc_carrito)
+    productdetailscreen = ProductDetailScreen(context)
+    productdetailscreen.tap_element(*productdetailscreen.scroll_down_product_add_cart)
+
+
+@When("Elijo el 'carrito de compra'")
+def step_impl(context):
+    productdetailscreen = ProductDetailScreen(context)
+    productdetailscreen.tap_element(*productdetailscreen.opc_carrito)
+
+
+@Then("Visualizo el carrito")
+def step_impl(context):
+    text_titulo_tu_carrito = CART_TEXTS.get("txt_title_carttxt_title_cart")
+    shoppingcartscreen = ShoppingCartScreen(context)
+    shoppingcartscreen.assert_text(*shoppingcartscreen.title_tu_carrito,
+                                   text=text_titulo_tu_carrito)
 
 
 @Then("Visualizo el 'nombre' del producto agregado al carrito")

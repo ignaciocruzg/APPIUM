@@ -10,6 +10,8 @@ class ProductDetailScreen(CommonActions):
             .get("txt_title_product_detail")
         text_nombre_producto = PRODUCT_TEXTS.get("txt_productname")
         text_precio_producto = PRODUCT_TEXTS.get("txt_price")
+        text_anadir_a_carrito = PRODUCT_TEXTS.get("txt_add_cart")
+        content_desc_carrito = PRODUCT_TEXTS.get("contest_desc_cart")
         self.lbl_title_product_detail = (By.XPATH,
                                          '//*[contains(@text,"{}")]'
                                          .format(text_title_product_detail))
@@ -25,3 +27,14 @@ class ProductDetailScreen(CommonActions):
                                           'scrollIntoView(new UiSelector().'
                                           'textContains("{}").instance(0))'
                                           .format(text_precio_producto))
+        self.scroll_down_product_add_cart = (By.ANDROID_UIAUTOMATOR,
+                                             'new UiScrollable('
+                                             'new UiSelector().'
+                                             'scrollable(true).'
+                                             'instance(0)).'
+                                             'scrollIntoView('
+                                             'new UiSelector().'
+                                             'textContains("{}").'
+                                             'instance(0))'
+                                             .format(text_anadir_a_carrito))
+        self.opc_carrito = (By.XPATH, '//android.view.ViewGroup[@content-desc="{}"]'.format(content_desc_carrito))
