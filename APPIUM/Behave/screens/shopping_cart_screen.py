@@ -6,9 +6,9 @@ from utils.dictionaries.input_data import PRODUCT_TEXTS, CART_TEXTS
 class ShoppingCartScreen(CommonActions):
     def __init__(self, context):
         super().__init__(context.driver)
+        text_titulo_tu_carrito = CART_TEXTS.get("txt_title_cart")
         text_nombre_producto = PRODUCT_TEXTS.get("txt_productname")
         text_precio_producto = PRODUCT_TEXTS.get("txt_price")
-        text_titulo_tu_carrito = CART_TEXTS.get("txt_title_carttxt_title_cart")
         self.title_tu_carrito = (By.XPATH, '//*[contains(@text,"{}")]'
                                  .format(text_titulo_tu_carrito))
         self.lbl_nombre_producto = (By.XPATH,

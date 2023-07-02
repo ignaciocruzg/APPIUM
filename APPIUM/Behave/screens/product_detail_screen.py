@@ -6,7 +6,7 @@ from utils.dictionaries.input_data import PRODUCT_TEXTS
 class ProductDetailScreen(CommonActions):
     def __init__(self, context):
         super().__init__(context.driver)
-        text_title_product_detail = PRODUCT_TEXTS\
+        text_title_product_detail = PRODUCT_TEXTS \
             .get("txt_title_product_detail")
         text_nombre_producto = PRODUCT_TEXTS.get("txt_productname")
         text_precio_producto = PRODUCT_TEXTS.get("txt_price")
@@ -35,6 +35,6 @@ class ProductDetailScreen(CommonActions):
                                              'scrollIntoView('
                                              'new UiSelector().'
                                              'textContains("{}").'
-                                             'instance(0))'
-                                             .format(text_anadir_a_carrito))
+                                             'instance(0))'.format(text_anadir_a_carrito))
+        self.lbl_anadir_a_carrito = (By.XPATH, '//android.view.ViewGroup[@content-desc="{}"]/android.widget.TextView'.format(content_desc_carrito))
         self.opc_carrito = (By.XPATH, '//android.view.ViewGroup[@content-desc="{}"]'.format(content_desc_carrito))
