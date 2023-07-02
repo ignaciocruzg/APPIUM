@@ -7,14 +7,17 @@ from utils.dictionaries.input_data import PRODUCT_TEXTS, CART_TEXTS
 
 @When("Elijo 'producto'")
 def step_impl(context):
+    text_product_name = PRODUCT_TEXTS.get("txt_productname")
     products_screen = ProductosScreen(context)
-    products_screen.tap_element(*products_screen.scroll_down_product_name)
+    products_screen.scroll_into_element_tap(text_product_name)
 
 
 @When("Elijo 'Añadir a carrito'")
 def step_impl(context):
+    text_anadir_carrito = PRODUCT_TEXTS.get("txt_add_cart")
     product_detail_screen = ProductDetailScreen(context)
-    product_detail_screen.tap_element(*product_detail_screen.scroll_down_product_add_cart)
+    product_detail_screen.scroll_into_element(text_anadir_carrito)
+    product_detail_screen.tap_element(*product_detail_screen.lbl_anadir_a_carrito)
 
 
 @When("Elijo el 'carrito de compra'")
@@ -41,5 +44,4 @@ def step_impl(context):
 def step_impl(context):
     text_precio_producto = PRODUCT_TEXTS.get("txt_price")
     shopping_cart_screen = ShoppingCartScreen(context)
-    shopping_cart_screen.assert_text(*shopping_cart_screen.lbl_precio_producto,
-                                   text=text_precio_producto)
+    shopping_cart_screen.assert_text(*shopping_cart_screen.lbl_precio_producto, text=text_precio_producto)

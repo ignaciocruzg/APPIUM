@@ -36,5 +36,5 @@ class ProductDetailScreen(CommonActions):
                                              'new UiSelector().'
                                              'textContains("{}").'
                                              'instance(0))'.format(text_anadir_a_carrito))
-        self.lbl_anadir_a_carrito = (By.XPATH, '//android.view.ViewGroup[@content-desc="{}"]/android.widget.TextView'.format(content_desc_carrito))
+        self.lbl_anadir_a_carrito = (By.XPATH, '//*[contains(@text,"{}")]'.format(text_anadir_a_carrito))
         self.opc_carrito = (By.XPATH, '//android.view.ViewGroup[@content-desc="{}"]'.format(content_desc_carrito))

@@ -36,3 +36,4 @@ class ProductosScreen(CommonActions):
                                         'scrollIntoView(new UiSelector().'
                                         'textContains("{}").instance(0))'
                                         .format(text_precio_mayor))
+
