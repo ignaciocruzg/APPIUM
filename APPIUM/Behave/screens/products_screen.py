@@ -16,12 +16,6 @@ class ProductosScreen(CommonActions):
         self.lbl_nombre_producto = (By.XPATH,
                                     '//*[contains(@text,"{}")]'
                                     .format(text_nombre_producto))
-        self.scroll_down_product_name = (By.ANDROID_UIAUTOMATOR,
-                                         'new UiScrollable(new UiSelector().'
-                                         'scrollable(true).instance(0)).'
-                                         'scrollIntoView(new UiSelector().'
-                                         'textContains("{}").instance(0))'
-                                         .format(text_nombre_producto))
         self.opc_carrito = (By.XPATH,
                             "//android.view.ViewGroup"
                             "[@content-desc=\"test-Carrito\"]")
@@ -36,4 +30,4 @@ class ProductosScreen(CommonActions):
                                         'scrollIntoView(new UiSelector().'
                                         'textContains("{}").instance(0))'
                                         .format(text_precio_mayor))
-
+        self.lbl_anadir_a_carrito = (By.XPATH, '//*[contains(@text, "AÑADIR A CARRITO")]')
