@@ -9,5 +9,9 @@ class CheckoutCompletadoScreen(CommonActions):
         super().__init__(context.driver)
         text_title = CHECKOUT_TEXTS.get("txt_title_checkout_terminado")
         text_gracias = CHECKOUT_TEXTS.get("txt_gracias")
-        self.lbl_title = (By.XPATH, '//*[contains(@text, "{}")]'.format(text_title))
-        self.lbl_gracias = (By.XPATH, '//*[contains(@text, "{}")]'.format(text_gracias))
+        self.lbl_title = (By.XPATH,
+                          '//*[contains(@text, "{}")]'
+                          .format(text_title))
+        self.lbl_gracias = (By.XPATH,
+                            '//*[contains(@text, "{}")]'
+                            .format(text_gracias))

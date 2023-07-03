@@ -27,9 +27,12 @@ def step_impl(context):
     text_apellido_usuario = CHECKOUT_TEXTS.get("txt_ap_usuario")
     text_codigo_postal = CHECKOUT_TEXTS.get("txt_cp")
     checkout_info_screen = CheckoutInfoScreen(context)
-    checkout_info_screen.fill_text(*checkout_info_screen.txt_nombre, text=text_nombre_usuario)
-    checkout_info_screen.fill_text(*checkout_info_screen.txt_apellido, text=text_apellido_usuario)
-    checkout_info_screen.fill_text(*checkout_info_screen.txt_codigo_postal, text=text_codigo_postal)
+    checkout_info_screen.fill_text(*checkout_info_screen.txt_nombre,
+                                   text=text_nombre_usuario)
+    checkout_info_screen.fill_text(*checkout_info_screen.txt_apellido,
+                                   text=text_apellido_usuario)
+    checkout_info_screen.fill_text(*checkout_info_screen.txt_codigo_postal,
+                                   text=text_codigo_postal)
     checkout_info_screen.tap_element(*checkout_info_screen.btn_continuar)
 
 
@@ -44,11 +47,15 @@ def step_impl(context):
 def step_impl(context):
     txt_title = CHECKOUT_TEXTS.get("txt_title_checkout_terminado")
     checkout_completado_screen = CheckoutCompletadoScreen(context)
-    checkout_completado_screen.assert_text(*checkout_completado_screen.lbl_title, text=txt_title)
+    checkout_completado_screen.assert_text(*checkout_completado_screen
+                                           .lbl_title,
+                                           text=txt_title)
 
 
 @Then("Visualizo gracias")
 def step_impl(context):
     txt_gracias = CHECKOUT_TEXTS.get("txt_gracias")
     checkout_completado_screen = CheckoutCompletadoScreen(context)
-    checkout_completado_screen.assert_text(*checkout_completado_screen.lbl_gracias, text=txt_gracias)
+    checkout_completado_screen.assert_text(*checkout_completado_screen.
+                                           lbl_gracias,
+                                           text=txt_gracias)

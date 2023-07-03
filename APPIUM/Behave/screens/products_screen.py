@@ -1,6 +1,8 @@
 from appium.webdriver.common.appiumby import AppiumBy as By
 from utils.common_actions import CommonActions
-from utils.dictionaries.input_data import LOGIN_TEXTS, PRODUCT_TEXTS, ORDER_BY_PRICE_TEXTS
+from utils.dictionaries.input_data import LOGIN_TEXTS, \
+    PRODUCT_TEXTS, \
+    ORDER_BY_PRICE_TEXTS
 
 
 class ProductosScreen(CommonActions):
@@ -19,8 +21,13 @@ class ProductosScreen(CommonActions):
         self.opc_carrito = (By.XPATH,
                             "//android.view.ViewGroup"
                             "[@content-desc=\"test-Carrito\"]")
-        self.opc_filtro = (By.XPATH, "//android.view.ViewGroup[@content-desc=\"test-Modal Selector Button\"]")
-        self.opc_minor_to_major = (By.XPATH, '//*[contains(@text, "Price (low to high)")]')
+        self.opc_filtro = (By.XPATH,
+                           "//android.view.ViewGroup"
+                           "[@content-desc="
+                           "\"test-Modal Selector Button\"]")
+        self.opc_minor_to_major = (By.XPATH,
+                                   '//*[contains(@text, '
+                                   '"Price (low to high)")]')
         self.lbl_precio_bajo = (By.XPATH,
                                 '//*[contains(@text,"{}")]'
                                 .format(text_precio_menor))
@@ -30,4 +37,6 @@ class ProductosScreen(CommonActions):
                                         'scrollIntoView(new UiSelector().'
                                         'textContains("{}").instance(0))'
                                         .format(text_precio_mayor))
-        self.lbl_anadir_a_carrito = (By.XPATH, '//*[contains(@text, "AÑADIR A CARRITO")]')
+        self.lbl_anadir_a_carrito = (By.XPATH,
+                                     '//*[contains(@text, '
+                                     '"AÑADIR A CARRITO")]')

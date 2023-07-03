@@ -1,6 +1,6 @@
 Feature: Comprar productos
 
-    @regression @test
+    @regression @smoke
     Scenario: Ordenar productos por precio de menor a mayor
       Given Ingreso a la app con datos correctos
       And Agrego los 'productos' al carrito y doy en 'carrito'
